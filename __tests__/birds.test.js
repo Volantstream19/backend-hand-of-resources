@@ -8,7 +8,17 @@ describe('Bird Routes', () => {
     return setup(pool);
   });
 
-  it('/birds should return a list of a birds', async () => {
+  it('GET /birds/:id should return a single bird', async () => {
+    const response = await request(app).get('/birds/1');
+    expect(response.body).toEqual({
+      id: '1',
+      name: 'Steven',
+      type: 'Hen',
+      color: 'Red',
+    });
+  });
+
+  it('GET /birds should return a list of a birds', async () => {
     const response = await request(app).get('/birds');
     expect(response.body).toEqual([
       {
