@@ -8,6 +8,36 @@ describe('Bird Routes', () => {
     return setup(pool);
   });
 
+  it('/birds should return a list of a birds', async () => {
+    const response = await request(app).get('/birds');
+    expect(response.body).toEqual([
+      {
+        id: '1',
+        name: 'Steven',
+        type: 'Hen',
+        color: 'Red',
+      },
+      {
+        id: '2',
+        name: 'Johnathan',
+        type: 'Cardinal',
+        color: 'Orange',
+      },
+      {
+        id: '3',
+        name: 'Boolean',
+        type: 'Resplendent Quetzal',
+        color: 'Teal',
+      },
+      {
+        id: '4',
+        name: 'Steph',
+        type: 'Goose',
+        color: 'Grey',
+      },
+    ]);
+  });
+
   it('POST /birds should return a new bird value', async () => {
     const newBird = {
       name: 'Jackson',
