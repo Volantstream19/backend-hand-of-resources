@@ -60,6 +60,14 @@ describe('Bird Routes', () => {
       ...newBird,
     });
   });
+
+  it('/birds/:id should update an existing bird', async () => {
+    const response = await request(app).put('/birds/1').send({
+      type: 'Gangsta',
+    });
+    expect(response.body.type).toBe('Gangsta');
+  });
+
   afterAll(() => {
     pool.end();
   });
