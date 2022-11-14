@@ -8,7 +8,7 @@ describe('Bird Routes', () => {
     return setup(pool);
   });
 
-  it('GET /birds/:id should return a single bird', async () => {
+  it.skip('GET /birds/:id should return a single bird', async () => {
     const response = await request(app).get('/birds/1');
     expect(response.body).toEqual({
       id: '1',
@@ -18,7 +18,7 @@ describe('Bird Routes', () => {
     });
   });
 
-  it('GET /birds should return a list of a birds', async () => {
+  it.skip('GET /birds should return a list of a birds', async () => {
     const response = await request(app).get('/birds');
     expect(response.body).toEqual([
       {
@@ -48,7 +48,7 @@ describe('Bird Routes', () => {
     ]);
   });
 
-  it('POST /birds should return a new bird value', async () => {
+  it.skip('POST /birds should return a new bird value', async () => {
     const newBird = {
       name: 'Jackson',
       type: 'Human',
@@ -61,14 +61,14 @@ describe('Bird Routes', () => {
     });
   });
 
-  it('PUT /birds/:id should update an existing bird', async () => {
+  it.skip('PUT /birds/:id should update an existing bird', async () => {
     const response = await request(app).put('/birds/1').send({
       type: 'Gangsta',
     });
     expect(response.status).toBe(200);
   });
 
-  it('DELETE /birds will delete a bird', async () => {
+  it.skip('DELETE /birds will delete a bird', async () => {
     const response = await request(app).delete('/birds/3');
     expect(response.status).toBe(200);
   });
