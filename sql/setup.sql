@@ -2,7 +2,16 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS birds;
 DROP TABLE IF EXISTS cars;
+DROP TABLE IF EXISTS cats;
 
+
+-- CATS TABLE
+CREATE TABLE cats (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    type VARCHAR NOT NULL,
+    color VARCHAR NOT NULL
+);
 -- CARS TABLE
 CREATE TABLE cars (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -69,4 +78,29 @@ VALUES
         'Steph',
         'Goose',
         'Grey'
+    );
+
+-- CATS VALUES
+INSERT INTO
+    cats (name, type, color)
+VALUES
+    (
+        'Garfield',
+        'Lazy',
+        'Orange'
+    ),
+    (
+        'Darwin',
+        'Curious',
+        'Grey'
+    ),
+    (
+        'Render',
+        'Fender',
+        'Bender'
+    ),
+    (
+        'Blah',
+        'Happy',
+        'Black'
     );
