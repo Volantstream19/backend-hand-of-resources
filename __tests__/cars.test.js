@@ -74,6 +74,13 @@ describe('Car Routes', () => {
     });
   });
 
+  it('/cars/:id should update a car', async () => {
+    const response = await request(app).put('/cars/1').send({
+      name: 'Hurracan',
+    });
+    expect(response.status).toBe(200);
+  });
+
   afterAll(() => {
     pool.end();
   });
