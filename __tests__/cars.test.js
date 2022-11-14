@@ -60,6 +60,20 @@ describe('Car Routes', () => {
     ]);
   });
 
+  it('/cars should return new car', async () => {
+    const newCar = {
+      name: 'Aventador',
+      type: 'Lamborghini',
+      color: 'Yellow',
+      year: 2022,
+    };
+    const response = await request(app).post('/cars').send(newCar);
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      ...newCar,
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
