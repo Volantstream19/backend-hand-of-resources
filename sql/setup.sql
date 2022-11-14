@@ -3,8 +3,15 @@
 DROP TABLE IF EXISTS birds;
 DROP TABLE IF EXISTS cars;
 DROP TABLE IF EXISTS cats;
+DROP TABLE IF EXISTS dogs;
 
-
+-- DOGS TABLE
+CREATE TABLE dogs (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    type VARCHAR NOT NULL,
+    weight INT NOT NULL
+);
 -- CATS TABLE
 CREATE TABLE cats (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -103,4 +110,28 @@ VALUES
         'Blah',
         'Happy',
         'Black'
+    );
+-- DOG VALUES
+INSERT INTO
+    dogs (name, type, weight)
+VALUES
+    (
+        'Chewy',
+        'Lhaso apso',
+        30
+    ),
+    (
+        'Leia',
+        'Shitzu',
+        20
+    ),
+    (
+        'AR-15',
+        'German Sheperd',
+        110
+    ),
+    (
+        'Winston',
+        'SilverBack Gorilla',
+        1500
     );
