@@ -81,6 +81,11 @@ describe('Car Routes', () => {
     expect(response.status).toBe(200);
   });
 
+  it('/cars will delete a bird', async () => {
+    const response = await request(app).delete('/cars/3');
+    expect(response.status).toBe(200);
+  });
+
   afterAll(() => {
     pool.end();
   });
