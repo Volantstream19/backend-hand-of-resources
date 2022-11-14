@@ -14,7 +14,7 @@ describe('Cat Routes', () => {
       id: '1',
       name: 'Chewy',
       type: 'Lhaso apso',
-      weight: 30,
+      age: 16,
     });
   });
 
@@ -25,27 +25,48 @@ describe('Cat Routes', () => {
         id: '1',
         name: 'Chewy',
         type: 'Lhaso apso',
-        weight: 30,
+        age: 16,
       },
       {
         id: '2',
         name: 'Leia',
         type: 'Shitzu',
-        weight: 20,
+        age: 11,
       },
       {
         id: '3',
         name: 'AR-15',
         type: 'German Sheperd',
-        weight: 110,
+        age: 4,
       },
       {
         id: '4',
         name: 'Winston',
         type: 'SilverBack Gorilla',
-        weight: 1500,
+        age: 190,
       },
     ]);
+  });
+
+  it('/dogs should return new dog', async () => {
+    const newDog = {
+      name: 'Steven',
+      type: 'Believin this is the new Dog',
+      age: 450,
+    };
+    const response = await request(app).post('/dogs').send(newDog);
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      ...newDog,
+    });
+  });
+
+  it('/dogs/:id should update', async () => {
+    const response = await request(app).put('/dogs/1').send({
+      name: 'IF YOU SEE THIS IT WORKED',
+      type: 'ENERGETIC',
+    });
+    expect(response.status).toBe(200);
   });
 
   afterAll(() => {

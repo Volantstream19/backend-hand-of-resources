@@ -8,9 +8,9 @@ DROP TABLE IF EXISTS dogs;
 -- DOGS TABLE
 CREATE TABLE dogs (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    name VARCHAR NOT NULL,
-    type VARCHAR NOT NULL,
-    weight INT NOT NULL
+    name VARCHAR,
+    type VARCHAR,
+    age INT
 );
 -- CATS TABLE
 CREATE TABLE cats (
@@ -113,25 +113,25 @@ VALUES
     );
 -- DOG VALUES
 INSERT INTO
-    dogs (name, type, weight)
+    dogs (name, type, age)
 VALUES
     (
         'Chewy',
         'Lhaso apso',
-        30
+        16
     ),
     (
         'Leia',
         'Shitzu',
-        20
+        11
     ),
     (
         'AR-15',
         'German Sheperd',
-        110
+        4
     ),
     (
         'Winston',
         'SilverBack Gorilla',
-        1500
+        190
     );
