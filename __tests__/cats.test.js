@@ -61,6 +61,14 @@ describe('Cat Routes', () => {
     });
   });
 
+  it('/cats/:id should update a cats', async () => {
+    const response = await request(app).put('/cats/1').send({
+      name: 'HELLO MY NAME IS',
+      type: 'ENERGETIC',
+    });
+    expect(response.status).toBe(200);
+  });
+
   afterAll(() => {
     pool.end();
   });
