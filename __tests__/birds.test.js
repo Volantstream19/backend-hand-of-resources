@@ -61,11 +61,16 @@ describe('Bird Routes', () => {
     });
   });
 
-  it('/birds/:id should update an existing bird', async () => {
+  it('PUT /birds/:id should update an existing bird', async () => {
     const response = await request(app).put('/birds/1').send({
       type: 'Gangsta',
     });
-    expect(response.body.type).toBe('Gangsta');
+    expect(response.status).toBe(200);
+  });
+
+  it('DELETE /birds will delete a bird', async () => {
+    const response = await request(app).delete('/birds/3');
+    expect(response.status).toBe(200);
   });
 
   afterAll(() => {
