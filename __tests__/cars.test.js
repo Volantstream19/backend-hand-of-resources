@@ -77,6 +77,7 @@ describe('Car Routes', () => {
   it.skip('/cars/:id should update a car', async () => {
     const response = await request(app).put('/cars/1').send({
       name: 'Hurracan',
+      type: 'Ocean',
     });
     expect(response.status).toBe(200);
   });
