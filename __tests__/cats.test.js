@@ -48,6 +48,19 @@ describe('Cat Routes', () => {
     ]);
   });
 
+  it('/cats should return new cat', async () => {
+    const newCat = {
+      name: 'Steven',
+      type: 'Believin this is the new cat',
+      color: 'Blue',
+    };
+    const response = await request(app).post('/cats').send(newCat);
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      ...newCat,
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
