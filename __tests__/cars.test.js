@@ -8,6 +8,17 @@ describe('Car Routes', () => {
     return setup(pool);
   });
 
+  it('/cars/:id should return a single bird', async () => {
+    const response = await request(app).get('/cars/1');
+    expect(response.body).toEqual({
+      id: '1',
+      name: 'Accord',
+      type: 'Honda',
+      color: 'Green',
+      year: 2002,
+    });
+  });
+
   it('/cars should return a list of a cars', async () => {
     const response = await request(app).get('/cars');
     expect(response.body).toEqual([
