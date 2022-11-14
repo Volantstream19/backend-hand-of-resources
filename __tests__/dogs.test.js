@@ -8,6 +8,16 @@ describe('Cat Routes', () => {
     return setup(pool);
   });
 
+  it('/dogs/:id should return a single dog', async () => {
+    const response = await request(app).get('/dogs/1');
+    expect(response.body).toEqual({
+      id: '1',
+      name: 'Chewy',
+      type: 'Lhaso apso',
+      weight: 30,
+    });
+  });
+
   it('/dogs should return a list of a dogs', async () => {
     const response = await request(app).get('/dogs');
     expect(response.body).toEqual([
