@@ -8,7 +8,7 @@ describe('Car Routes', () => {
     return setup(pool);
   });
 
-  it.skip('/cars/:id should return a single bird', async () => {
+  it('/cars/:id should return a single bird', async () => {
     const response = await request(app).get('/cars/1');
     expect(response.body).toEqual({
       id: '1',
@@ -19,7 +19,7 @@ describe('Car Routes', () => {
     });
   });
 
-  it.skip('/cars should return a list of a cars', async () => {
+  it('/cars should return a list of a cars', async () => {
     const response = await request(app).get('/cars');
     expect(response.body).toEqual([
       {
@@ -60,7 +60,7 @@ describe('Car Routes', () => {
     ]);
   });
 
-  it.skip('/cars should return new car', async () => {
+  it('/cars should return new car', async () => {
     const newCar = {
       name: 'Aventador',
       type: 'Lamborghini',
@@ -74,7 +74,7 @@ describe('Car Routes', () => {
     });
   });
 
-  it.skip('/cars/:id should update a car', async () => {
+  it('/cars/:id should update a car', async () => {
     const response = await request(app).put('/cars/1').send({
       name: 'Hurracan',
       type: 'Ocean',
@@ -82,7 +82,7 @@ describe('Car Routes', () => {
     expect(response.status).toBe(200);
   });
 
-  it.skip('/cars will delete a bird', async () => {
+  it('/cars will delete a bird', async () => {
     const response = await request(app).delete('/cars/3');
     expect(response.status).toBe(200);
   });

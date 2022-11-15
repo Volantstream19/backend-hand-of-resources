@@ -92,6 +92,11 @@ describe('Fruits Routes', () => {
     expect(response.status).toBe(200);
   });
 
+  it('/fruits will delete a fruit', async () => {
+    const response = await request(app).delete('/fruits/5');
+    expect(response.status).toBe(200);
+  });
+
   afterAll(() => {
     pool.end();
   });
