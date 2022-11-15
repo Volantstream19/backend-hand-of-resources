@@ -4,6 +4,16 @@ DROP TABLE IF EXISTS birds;
 DROP TABLE IF EXISTS cars;
 DROP TABLE IF EXISTS cats;
 DROP TABLE IF EXISTS dogs;
+DROP TABLE IF EXISTS fruits;
+
+-- FRUITS TABLE
+
+CREATE TABLE fruits (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    type VARCHAR NOT NULL,
+    texture VARCHAR NOT NULL,
+    sweetness INT NOT NULL
+);
 
 -- DOGS TABLE
 CREATE TABLE dogs (
@@ -34,6 +44,35 @@ CREATE TABLE birds (
     type VARCHAR NOT NULL,
     color VARCHAR NOT NULL
 );
+
+-- FRUITS VALUES
+INSERT INTO fruits (type, texture, sweetness)
+VALUES 
+    ('Apple',
+    'Crisp',
+    4.8),
+    ('Pineapple',
+    'Soft',
+    8),
+    ('Bananas',
+    'Soft',
+    4),
+    ('Watermelon',
+    'Soft, Juicy, Delicious',
+    4.5),
+    ('Caribbean June Plum',
+    'Firm',
+    5.4),
+    ('Chokecherries',
+    'Soft',
+    7),
+    ('Rasberries',
+    'Soft',
+    5),
+    ('Lime',
+    'Tart',
+    10);
+
 -- CARS VALUES
 INSERT INTO cars (type, name, color, year)
 VALUES
