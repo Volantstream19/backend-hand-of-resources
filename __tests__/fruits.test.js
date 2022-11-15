@@ -85,6 +85,13 @@ describe('Fruits Routes', () => {
     });
   });
 
+  it('/fruits/:id should update fruits', async () => {
+    const response = await request(app).put('/fruits/1').send({
+      type: 'THis JUST UPDATED',
+    });
+    expect(response.status).toBe(200);
+  });
+
   afterAll(() => {
     pool.end();
   });
