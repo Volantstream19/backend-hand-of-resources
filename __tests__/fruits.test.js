@@ -8,6 +8,16 @@ describe('Fruits Routes', () => {
     return setup(pool);
   });
 
+  it('/fruits/:id should return a single fruit', async () => {
+    const response = await request(app).get('/fruits/1');
+    expect(response.body).toEqual({
+      id: '1',
+      type: 'Apple',
+      texture: 'Crisp',
+      sweetness: 5,
+    });
+  });
+
   it('/fruits should return a list of a fruits', async () => {
     const response = await request(app).get('/fruits');
     expect(response.body).toEqual([
