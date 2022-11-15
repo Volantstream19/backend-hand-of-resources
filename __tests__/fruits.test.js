@@ -72,6 +72,19 @@ describe('Fruits Routes', () => {
     ]);
   });
 
+  it('/fruits should return new fruit', async () => {
+    const newFruit = {
+      type: 'Ball',
+      texture: 'Soft',
+      sweetness: 10,
+    };
+    const response = await request(app).post('/fruits').send(newFruit);
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      ...newFruit,
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
